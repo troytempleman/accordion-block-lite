@@ -1,5 +1,10 @@
 <?php
 
+// Exit if accessed directly 
+if( ! defined( 'ABSPATH' ) ) {
+	exit;
+}
+
 // Attributes
 $block_id = isset( $attributes['uid'] ) ? $attributes['uid'] : null;
 $text_align = isset( $attributes['textAlign'] ) ? $attributes['textAlign'] : null;
@@ -25,6 +30,6 @@ $block_content .= '</' . $header_heading . '>';
 $block_content .= '<div class="wp-block-tt-accordion-item-panel open" id="wp-block-tt-accordion-item-panel-' . $block_id . '" role="region">';
 $block_content .= wp_kses_post( $content ) . '</div>';
 $block_content .= '</li>';
-echo $block_content;
+echo wp_kses_post( $block_content );
 
 ?>
