@@ -3,7 +3,7 @@
  * Plugin Name:       Accordion Block Lite
  * Plugin URI:        https://github.com/troytempleman/accordion-block-lite
  * Description:       A block that displays vertical list items that can expand and collapse to show and hide their associated sections of content.
- * Version:           0.1.1
+ * Version:           0.1.2
  * Requires at least: 6.0
  * Requires PHP:      7.0
  * Author:            Troy Templeman

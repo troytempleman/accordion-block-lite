@@ -1,10 +1,10 @@
 === Accordion Block Lite ===
 Contributors: troytempleman
 Donate link: https://www.buymeacoffee.com/troytempleman
-Tags: accordion, accordion item, block, expand, collapse, show, hide, sections, accessible, responsive
+Tags: accordion, block, accessible, responsive
 Requires at least: 6.0
-Tested up to: 6.4.1
-Stable tag: 0.1.1
+Tested up to: 6.6.2
+Stable tag: 0.1.2
 Requires PHP: 7.4
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
@@ -237,6 +237,12 @@ Please see **Installation** section.
 5. Accordion block on the front end.
 
 == Changelog ==
+
+= 0.1.2 - September 22, 2024 =
+
+* Updated: Version in `accordion-block-lite.php` and `package.json`.
+* Updated: Tags, stable tag and changelog in `readme.md` and `readme.txt`.
+* Updated: Version and keywords in `build/accordion/block.json`, `build/accordion-item/block.json`, `src/accordion/block.json`, and `src/accordion-item/block.json`.
 
 = 0.1.1 - April 2, 2024 =
 
