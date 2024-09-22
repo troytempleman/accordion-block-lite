@@ -2,11 +2,11 @@
 	"$schema": "https://schemas.wp.org/trunk/block.json",
 	"apiVersion": 2,
 	"name": "tt/accordion-item",
-	"version": "0.1.1",
+	"version": "0.1.2",
 	"title": "Accordion Item",
 	"category": "text",
 	"description": "A block that displays a list item that can expand and collapse to show and hide its associated section of content.",
-	"keywords": [ "accordion", "accordion item", "block", "expand", "collapse", "show", "hide", "sections", "accessible", "responsive" ],
+	"keywords": [ "accordion", "block", "accessible", "responsive" ],
 	"textdomain": "accordion-item",
 	"parent": [ "tt/accordion" ],
 	"attributes":{
