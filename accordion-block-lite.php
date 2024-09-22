@@ -3,14 +3,14 @@
  * Plugin Name:       Accordion Block Lite
  * Plugin URI:        https://github.com/troytempleman/accordion-block-lite
  * Description:       A block that displays vertical list items that can expand and collapse to show and hide their associated sections of content.
- * Version:           0.1.0
+ * Version:           0.1.1
  * Requires at least: 6.0
  * Requires PHP:      7.0
  * Author:            Troy Templeman
- * Author URI:        http://troytempleman.com
+ * Author URI:        https://troytempleman.com
  * License:           GPL v2 or later
  * License URI:       https://www.gnu.org/licenses/gpl-2.0.html
- * Text Domain:       accordion-block
+ * Text Domain:       accordion-block-lite
  * Domain Path:       /languages
  */
 
@@ -20,7 +20,7 @@ if( ! defined( 'ABSPATH' ) ) {
 }
 
 // Register block
-function accordion_block_register() {
+function accordion_block_lite_register() {
 	
 	// Accordion
 	register_block_type( 
@@ -31,10 +31,10 @@ function accordion_block_register() {
 		__DIR__ . '/build/accordion-item'
 	);
 }
-add_action( 'init', 'accordion_block_register' );
+add_action( 'init', 'accordion_block_lite_register' );
 
 // Allowed HTML
-function accordion_block_allowed_html( $tags ) {
+function accordion_block_lite_allowed_html( $tags ) {
     
 	$tags['svg'] = array(
 		'version' => array(),
@@ -64,4 +64,4 @@ function accordion_block_allowed_html( $tags ) {
     );
     return $tags;
 }
-add_filter( 'wp_kses_allowed_html', 'accordion_block_allowed_html', 10, 2 );
+add_filter( 'wp_kses_allowed_html', 'accordion_block_lite_allowed_html', 10, 2 );

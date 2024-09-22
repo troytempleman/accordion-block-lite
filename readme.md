@@ -5,7 +5,7 @@
 **Tags:** accordion, accordion item, block, expand, collapse, show, hide, sections, accessible, responsive \
 **Requires at least:** 6.0 \
 **Tested up to:** 6.4.1 \
-**Stable tag:** 0.1.0 \
+**Stable tag:** 0.1.1 \
 **Requires PHP:** 7.4 \
 **License:** GPLv2 or later \
 **License URI:** https://www.gnu.org/licenses/gpl-2.0.html
@@ -17,6 +17,8 @@ A block that displays list items that expand and collapse to show and hide their
 Accordion Block Lite adds an accessible and responsive Accordion block to the block editor inserter that can be added to display list items that expand and collapse to show and hide their associated sections of content.
 
 Ideal for condensing longform or complex content, such as Frequently Asked Questions (FAQ). Also useful for reducing page scrolling.
+
+Upgrade to Pro at [https://troytempleman.com/wordpress/blocks/accordion-block/](https://troytempleman.com/wordpress/blocks/accordion-block/).
 
 ### Features
 
@@ -30,6 +32,7 @@ Ideal for condensing longform or complex content, such as Frequently Asked Quest
   * Header element
   * Header icon **[Pro]** 
   * Header icon position **[Pro]** 
+* Styles
   * Color
      * Text
      * Background
@@ -76,6 +79,10 @@ Ideal for condensing longform or complex content, such as Frequently Asked Quest
   * Lines **[Pro]** 
   * Blocks **[Pro]**  
 
+### Demo
+
+[https://troytempleman.com/wordpress/blocks/accordion-block/](https://troytempleman.com/wordpress/blocks/accordion-block/)
+
 ### HTML
 
 Accordion Block Lite will output an Accordion block with the following HTML structure:
@@ -100,7 +107,7 @@ Accordion Block Lite will output an Accordion block with the following HTML stru
 
 ## Support
 
-If you need help with Accordion Block Lite, please submit a ticket on the [Support]https://wordpress.org/support/plugin/accordion-block-lite) forum.
+If you need help with Accordion Block Lite, please submit a ticket on the [Support](https://wordpress.org/support/plugin/accordion-block-lite) forum.
 
 ## Donate
 
@@ -230,6 +237,14 @@ Please see **Installation** section.
 5. Accordion block on the front end.
 
 ## Changelog
+
+### 0.1.1 - April 2, 2024
+
+* Added: Code to prevent direct file access in `build/accordion/render.php`, `build/accordion-item/render.php`, `src/accordion/render.php`, and `src/accordion-item/render.php`.
+* Added: Security improvement by adding `wp_kses_post` filter to `$block_content` in `build/accordion/render.php`, `build/accordion-item/render.php`, `src/accordion/render.php`, and `src/accordion-item/render.php`.
+* Updated: Version in `accordion-block-lite.php` and `package.json`.
+* Updated: Stable tag and changelog in `readme.md` and `readme.txt`.
+* Updated: Version in `build/accordion/block.json`, `build/accordion-item/block.json`, `src/accordion/block.json`, and `src/accordion-item/block.json`.
 
 ### 0.1.0 - November 15, 2023
 
