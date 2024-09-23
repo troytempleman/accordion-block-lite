@@ -1,7 +1,7 @@
 === Accordion Block Lite ===
 Contributors: troytempleman
 Donate link: https://www.buymeacoffee.com/troytempleman
-Tags: accordion, block, accessible, responsive
+Tags: accordion, accordion item, block, accessible, responsive
 Requires at least: 6.0
 Tested up to: 6.6.2
 Stable tag: 0.1.2
