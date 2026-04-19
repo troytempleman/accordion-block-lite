@@ -2,134 +2,156 @@
 import classnames from 'classnames';
 
 // WordPress dependencies
-import { 
-	AlignmentToolbar, 
-	BlockControls, 
-	InnerBlocks, 
-	RichText, 
-	useBlockProps 
+import { getBlockTypes } from '@wordpress/blocks';
+import {
+	AlignmentToolbar,
+	BlockControls,
+	InnerBlocks,
+	RichText,
+	useBlockProps,
 } from '@wordpress/block-editor';
 import { Icon } from '@wordpress/components';
-import { useRef } from '@wordpress/element';
+import { useEffect, useRef } from '@wordpress/element';
 import { __ } from '@wordpress/i18n';
 
 // Internal dependencies
 import icons from './icons';
 
 // Edit
-export default function Edit( { attributes, setAttributes, context, clientId } ) {
-
+export default function Edit( {
+	attributes,
+	setAttributes,
+	context,
+	clientId,
+} ) {
 	// Attributes
-	const { 
-		uid,
-		textAlign,
+	const { uid, textAlign, headerElement, headerHeadingLevel, headerText } =
+		attributes;
+	const wrapperAttributes = useBlockProps( {
+		className: classnames( {
+			[ `has-text-align-${ textAlign }` ]: textAlign,
+		} ),
+	} );
+
+	const contextHeaderElement = context[ 'accordion/headerElement' ];
+	const contextHeaderHeadingLevel = context[ 'accordion/headerHeadingLevel' ];
+	const button = useRef();
+	const panel = useRef();
+	const Heading =
+		headerElement === 'heading' ? `h${ headerHeadingLevel }` : 'p';
+	const allOtherBlocks = getBlockTypes()
+		.map( ( block ) => block.name )
+		.filter( ( name ) => name !== 'tt/accordion-item' );
+
+	useEffect( () => {
+		const nextAttributes = {};
+
+		if ( uid !== clientId ) {
+			nextAttributes.uid = clientId;
+		}
+
+		if ( contextHeaderElement && headerElement !== contextHeaderElement ) {
+			nextAttributes.headerElement = contextHeaderElement;
+		}
+
+		if (
+			typeof contextHeaderHeadingLevel === 'number' &&
+			headerHeadingLevel !== contextHeaderHeadingLevel
+		) {
+			nextAttributes.headerHeadingLevel = contextHeaderHeadingLevel;
+		}
+
+		if ( Object.keys( nextAttributes ).length > 0 ) {
+			setAttributes( nextAttributes );
+		}
+	}, [
+		clientId,
+		contextHeaderElement,
+		contextHeaderHeadingLevel,
 		headerElement,
 		headerHeadingLevel,
-		headerText
-	} = attributes;
-	
-	// Set attributes with parent values
-	setAttributes( {
-		headerElement: context[ "accordion/headerElement" ],
-		headerHeadingLevel: context[ "accordion/headerHeadingLevel" ]
-		
-	} );
-	
-	// Block ID
-	setAttributes( { uid: clientId } );
-	
+		setAttributes,
+		uid,
+	] );
+
 	// Block content
-	const blockContent = () => {	
-		
-		// Wrapper 
-		const wrapperAttributes = useBlockProps( {
-			className: classnames( {
-				[ `has-text-align-${ textAlign }` ]: textAlign
-			} ),
-		} );
-		
-		// Heading
-		const Heading = headerElement === 'heading' ? 'h' + headerHeadingLevel : 'p';
-		
-		// Button
-		const button = useRef();
-		
-		// Panel
-		const panel = useRef();
-		
+	const blockContent = () => {
 		// Toggle
 		function toggle() {
-			const state = 'true' === button.current.getAttribute('aria-expanded');
-			button.current.setAttribute('aria-expanded', ! state);
-			if( state ) {
-				panel.current.classList.remove("open");
+			const state =
+				'true' === button.current.getAttribute( 'aria-expanded' );
+			button.current.setAttribute( 'aria-expanded', ! state );
+			if ( state ) {
+				panel.current.classList.remove( 'open' );
 				panel.current.hidden = true;
 			} else {
-				panel.current.classList.add("open");
+				panel.current.classList.add( 'open' );
 				panel.current.hidden = false;
 			}
 		}
-		
-		// All other blocks
-		const allOtherBlocks = wp.blocks.getBlockTypes().map( block => block.name ).filter( name => name !== 'tt/accordion-item' );
-		
-		return(	
+
+		return (
 			<li { ...wrapperAttributes }>
 				<Heading className="wp-block-tt-accordion-item-header">
-					<button 
+					<button
 						ref={ button }
 						onClick={ toggle }
-						className="wp-block-tt-accordion-item-header-button" 
-						id={ "wp-block-tt-accordion-item-header-button-" + uid } 
+						className="wp-block-tt-accordion-item-header-button"
+						id={ 'wp-block-tt-accordion-item-header-button-' + uid }
 						aria-expanded="false"
-						aria-controls={ "wp-block-tt-accordion-item-panel-" + uid }
+						aria-controls={
+							'wp-block-tt-accordion-item-panel-' + uid
+						}
 						type="button"
 					>
 						<RichText
 							tagName="span"
 							className="wp-block-tt-accordion-item-header-button-text"
 							value={ headerText }
-							allowedFormats={ ['core/bold', 'core/italic'] }
-							placeholder={ __( 'Add title', 'accordion-item' ) }
-							onChange={ ( value ) => setAttributes( { headerText: value } ) }
+							allowedFormats={ [ 'core/bold', 'core/italic' ] }
+							placeholder={ __(
+								'Add title',
+								'accordion-block-lite'
+							) }
+							onChange={ ( value ) =>
+								setAttributes( { headerText: value } )
+							}
 						/>
-						<span 
-							className="wp-block-tt-accordion-item-header-button-icon-arrow"
-						>
-							<Icon
-						    	icon={ icons.arrow }
-						    />
+						<span className="wp-block-tt-accordion-item-header-button-icon-arrow">
+							<Icon icon={ icons.arrow } />
 						</span>
 					</button>
 				</Heading>
-				<div 
-					ref={ panel } 
-					className="wp-block-tt-accordion-item-panel open" 
-					id={ "wp-block-tt-accordion-item-panel-" + uid } 
-					aria-labelledby={ "wp-block-tt-accordion-item-header-button-" + uid } 
+				<div
+					ref={ panel }
+					className="wp-block-tt-accordion-item-panel open"
+					id={ 'wp-block-tt-accordion-item-panel-' + uid }
+					aria-labelledby={
+						'wp-block-tt-accordion-item-header-button-' + uid
+					}
 					role="region"
 					hidden
 				>
-					<InnerBlocks 
-						allowedBlocks={ allOtherBlocks } 
-					/>
+					<InnerBlocks allowedBlocks={ allOtherBlocks } />
 				</div>
 			</li>
-		)
-	}
+		);
+	};
 
 	// Block controls
 	const blockControls = () => {
-		return(	
+		return (
 			<BlockControls group="block">
 				<AlignmentToolbar
 					value={ textAlign }
-					onChange={ ( value ) => setAttributes( { textAlign: value } ) }
+					onChange={ ( value ) =>
+						setAttributes( { textAlign: value } )
+					}
 				/>
 			</BlockControls>
-		)
-	}
-	
+		);
+	};
+
 	// Editor
 	return (
 		<>
@@ -137,4 +159,4 @@ export default function Edit( { attributes, setAttributes, context, clientId } )
 			{ blockContent() }
 		</>
 	);
-};
+}

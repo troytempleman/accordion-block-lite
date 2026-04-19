@@ -1,6 +1,6 @@
 {
 	"name": "accordion-block",
-	"version": "0.1.2",
+	"version": "0.1.3",
 	"description": "A block that displays vertical list items that can expand and collapse to show and hide their associated sections of content.",
 	"author": "Troy Templeman <troy@troytempleman.com> (https://troytempleman.com/)",
 	"license": "GPL-2.0-or-later",
@@ -16,14 +16,15 @@
 		"start": "wp-scripts start"
 	},
 	"devDependencies": {
-		"@wordpress/scripts": "^26.16.0"
+		"@wordpress/scripts": "^31.0.0"
 	},
 	"dependencies": {
-		"@wordpress/block-editor": "^12.13.0",
-		"@wordpress/blocks": "^12.22.0",
-		"@wordpress/components": "^25.11.0",
-		"@wordpress/element": "^5.22.0",
-		"@wordpress/i18n": "^4.45.0",
+		"@wordpress/block-editor": "^15.17.0",
+		"@wordpress/blocks": "^15.17.0",
+		"@wordpress/components": "^32.6.0",
+		"@wordpress/element": "^6.44.0",
+		"@wordpress/icons": "^12.2.0",
+		"@wordpress/i18n": "^6.17.0",
 		"classnames": "^2.3.2"
 	}
 }

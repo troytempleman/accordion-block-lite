@@ -15,14 +15,12 @@ const { name } = metadata;
 
 // Register block
 registerBlockType( name, {
-
 	// Icon
 	icon: icons.accordion_item,
-	
+
 	// Edit
 	edit: Edit,
 
 	// Save
 	save: Save,
-	
 } );

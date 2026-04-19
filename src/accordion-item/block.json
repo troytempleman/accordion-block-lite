@@ -2,14 +2,14 @@
 	"$schema": "https://schemas.wp.org/trunk/block.json",
 	"apiVersion": 2,
 	"name": "tt/accordion-item",
-	"version": "0.1.2",
+	"version": "0.1.3",
 	"title": "Accordion Item",
 	"category": "text",
 	"description": "A block that displays a list item that can expand and collapse to show and hide its associated section of content.",
 	"keywords": [ "accordion", "block", "accessible", "responsive" ],
-	"textdomain": "accordion-item",
+	"textdomain": "accordion-block-lite",
 	"parent": [ "tt/accordion" ],
-	"attributes":{
+	"attributes": {
 		"uid": {
 			"type": "string"
 		},
@@ -28,29 +28,29 @@
 			"type": "string"
 		}
 	},
-	"usesContext": [ 
-		"accordion/headerElement", 
+	"usesContext": [
+		"accordion/headerElement",
 		"accordion/headerHeadingLevel"
 	],
 	"example": {
-		"attributes":{
+		"attributes": {
 			"headerText": "Lorem ipsum dolor"
 		},
 		"innerBlocks": [
-	        {
-	            "name": "core/paragraph",
-	            "attributes": {
+			{
+				"name": "core/paragraph",
+				"attributes": {
 					"content": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus luctus neque vel elementum fringilla. In sed leo in orci porta posuere. Ut dictum justo non dolor hendrerit, sit amet vulputate nisl porta. Maecenas posuere, lacus nec tincidunt dictum, nisl nulla rhoncus augue, non luctus lectus eros congue tellus. Nunc at malesuada sapien."
-	            }
-	        }
-	    ]
+				}
+			}
+		]
 	},
 	"supports": {
 		"className": false,
 		"color": {
 			"gradients": true,
 			"link": true,
-			"__experimentalDefaultControls": {
+			"defaultControls": {
 				"background": true,
 				"text": true,
 				"link": true
@@ -64,18 +64,18 @@
 		"typography": {
 			"fontSize": true,
 			"lineHeight": true,
-			"__experimentalFontFamily": true,
-			"__experimentalFontWeight": true,
-			"__experimentalFontStyle": true,
-			"__experimentalTextTransform": true,
-			"__experimentalTextDecoration": true,
-			"__experimentalLetterSpacing": true,
-			"__experimentalDefaultControls": {
+			"fontFamily": true,
+			"fontWeight": true,
+			"fontStyle": true,
+			"textTransform": true,
+			"textDecoration": true,
+			"letterSpacing": true,
+			"defaultControls": {
 				"fontSize": true
 			}
 		}
 	},
-    "editorScript": "file:./index.js",
-    "style": "file:./style-index.css",
+	"editorScript": "file:./index.js",
+	"style": "file:./style-index.css",
 	"render": "file:./render.php"
 }

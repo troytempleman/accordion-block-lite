@@ -2,7 +2,7 @@
 
 .wp-block-tt-accordion-item-header {
 	padding: 0;
-	margin: 0; 
+	margin: 0;
 }
 
 .wp-block-tt-accordion-item-header-button {
@@ -11,7 +11,7 @@
 	width: 100%;
 	align-items: center;
 	justify-content: space-between;
-    cursor: pointer;
+	cursor: pointer;
 	outline: revert;
 	box-sizing: border-box;
 }
@@ -26,12 +26,12 @@
 }
 
 .wp-block-tt-accordion-item-header-button[aria-expanded="true"] .wp-block-tt-accordion-item-header-button-icon-arrow svg {
-	transform: rotate(180deg),
+	transform: rotate(180deg);
 }
 
 .wp-block-tt-accordion-item-panel {
-	max-height: 0vh;
-  	overflow: hidden;
+	max-height: 0;
+	overflow: hidden;
 	margin: 0;
 }
 

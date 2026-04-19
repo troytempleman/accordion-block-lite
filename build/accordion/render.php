@@ -6,17 +6,19 @@ if( ! defined( 'ABSPATH' ) ) {
 }
 
 // Attributes
-$text_align = isset( $attributes['textAlign'] ) ? $attributes['textAlign'] : '';
+$text_align = isset( $attributes['textAlign'] ) ? sanitize_html_class( $attributes['textAlign'] ) : '';
 
 // Wrapper
-$class = 'wp-block-tt-accordion ';
-$class .= $text_align ? ' has-text-align-' . $text_align : null;
+$class = 'wp-block-tt-accordion';
+
+if ( $text_align ) {
+	$class .= ' has-text-align-' . $text_align;
+}
+
 $wrapper_attributes = get_block_wrapper_attributes( array( 'class' => $class ) );
 
-// Block content
-$block_content = '<ul ' . $wrapper_attributes . '>';
-$block_content .= wp_kses_post( $content );
-$block_content .= '</ul>';
-echo wp_kses_post( $block_content );
+echo '<ul ' . $wrapper_attributes . '>';
+echo wp_kses_post( $content );
+echo '</ul>';
 
 ?>

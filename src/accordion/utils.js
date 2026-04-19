@@ -1,30 +1,27 @@
 // External dependencies
-import classnames from 'classnames';
-
-// WordPress dependencies
 import { Inserter } from '@wordpress/block-editor';
-import { IconButton, Path, SVG, ToolbarDropdownMenu } from '@wordpress/components';
+import { Button, Path, SVG, ToolbarDropdownMenu } from '@wordpress/components';
 import { __, sprintf } from '@wordpress/i18n';
 import { plus } from '@wordpress/icons';
 
 // Appender
 export const Appender = ( { rootClientId } ) => {
-    return (
-        <Inserter
-            rootClientId={ rootClientId }
-            renderToggle={ ( { onToggle, disabled } ) => (
-                <IconButton
-                    className="block-editor-button-block-appender"
-                    onClick={ onToggle }
-                    disabled={ disabled }
-                    label="Add accordion item"
-                    icon={ plus }
-                />
-            ) }
-            isAppender
-        />
-    );
-}
+	return (
+		<Inserter
+			rootClientId={ rootClientId }
+			renderToggle={ ( { onToggle, disabled } ) => (
+				<Button
+					className="block-editor-button-block-appender"
+					onClick={ onToggle }
+					disabled={ disabled }
+					label={ __( 'Add accordion item', 'accordion-block-lite' ) }
+					icon={ plus }
+				/>
+			) }
+			isAppender
+		/>
+	);
+};
 
 // Heading level icon
 function HeadingLevelIcon( { level, isPressed = false } ) {
@@ -54,18 +51,17 @@ function HeadingLevelIcon( { level, isPressed = false } ) {
 
 // Heading level dropdown
 export function HeadingLevelDropdown( { selectedLevel, onChange } ) {
-	
 	const HEADING_LEVELS = [ 1, 2, 3, 4, 5, 6 ];
 
 	const POPOVER_PROPS = {
 		className: 'block-library-heading-level-dropdown',
 	};
-	
+
 	return (
 		<ToolbarDropdownMenu
 			popoverProps={ POPOVER_PROPS }
 			icon={ <HeadingLevelIcon level={ selectedLevel } /> }
-			label={ __( 'Change heading level' ) }
+			label={ __( 'Change heading level', 'accordion-block-lite' ) }
 			controls={ HEADING_LEVELS.map( ( targetLevel ) => {
 				{
 					const isActive = targetLevel === selectedLevel;
@@ -78,8 +74,8 @@ export function HeadingLevelDropdown( { selectedLevel, onChange } ) {
 							/>
 						),
 						label: sprintf(
-							// translators: %s: heading level e.g: "1", "2", "3"
-							__( 'Heading %d' ),
+							// translators: %d: heading level e.g: "1", "2", "3"
+							__( 'Heading %d', 'accordion-block-lite' ),
 							targetLevel
 						),
 						isActive,

@@ -4,9 +4,9 @@
 **Donate link:** https://www.buymeacoffee.com/troytempleman \
 **Tags:** accordion, accordion item, block, accessible, responsive \
 **Requires at least:** 6.0 \
-**Tested up to:** 6.6.2 \
-**Stable tag:** 0.1.2 \
-**Requires PHP:** 7.4 \
+**Tested up to:** 6.8 \
+**Stable tag:** 0.1.3 \
+**Requires PHP:** 8.0 \
 **License:** GPLv2 or later \
 **License URI:** https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -124,7 +124,7 @@ Accordion Block Lite is released under the [GNU General Public License, version 
 ## Requirements
 
 * WordPress 6.0 or greater
-* PHP version 7.4 or greater
+* PHP version 8.0 or greater
 * MySQL version 5.7 or greater or MariaDB version 10.3 or greater.
 
 ## Installation
@@ -237,6 +237,15 @@ Please see **Installation** section.
 5. Accordion block on the front end.
 
 ## Changelog
+
+### 0.1.3 - April 18, 2026
+
+* Updated: Version in `accordion-block-lite.php`, `package.json`, `readme.md`, `readme.txt`, `build/accordion/block.json`, `build/accordion-item/block.json`, `src/accordion/block.json`, and `src/accordion-item/block.json`.
+* Updated: Gutenberg editor code to modern APIs (removed experimental aliases, migrated from global `wp.blocks` access, and improved hook usage).
+* Updated: Text domain consistency to `accordion-block-lite` across block metadata and editor strings.
+* Updated: Accessibility by improving accordion keyboard navigation support (Arrow Up/Down, Home, End).
+* Updated: Security and sanitization in dynamic render callbacks.
+* Updated: Tooling and dependencies for modern WordPress block development.
 
 ### 0.1.2 - September 2, 2024
 

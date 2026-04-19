@@ -2,18 +2,17 @@
   "$schema": "https://schemas.wp.org/trunk/block.json",
   "apiVersion": 2,
   "name": "tt/accordion-item",
-  "version": "0.1.2",
+  "version": "0.1.3",
   "title": "Accordion Item",
   "category": "text",
   "description": "A block that displays a list item that can expand and collapse to show and hide its associated section of content.",
   "keywords": [
     "accordion",
-    "accordion item",
     "block",
     "accessible",
     "responsive"
   ],
-  "textdomain": "accordion-item",
+  "textdomain": "accordion-block-lite",
   "parent": [
     "tt/accordion"
   ],
@@ -58,7 +57,7 @@
     "color": {
       "gradients": true,
       "link": true,
-      "__experimentalDefaultControls": {
+      "defaultControls": {
         "background": true,
         "text": true,
         "link": true
@@ -72,13 +71,13 @@
     "typography": {
       "fontSize": true,
       "lineHeight": true,
-      "__experimentalFontFamily": true,
-      "__experimentalFontWeight": true,
-      "__experimentalFontStyle": true,
-      "__experimentalTextTransform": true,
-      "__experimentalTextDecoration": true,
-      "__experimentalLetterSpacing": true,
-      "__experimentalDefaultControls": {
+      "fontFamily": true,
+      "fontWeight": true,
+      "fontStyle": true,
+      "textTransform": true,
+      "textDecoration": true,
+      "letterSpacing": true,
+      "defaultControls": {
         "fontSize": true
       }
     }
