@@ -2,7 +2,7 @@
 import classnames from 'classnames';
 
 // WordPress dependencies
-import { getBlockTypes } from '@wordpress/blocks';
+import { useSelect } from '@wordpress/data';
 import {
 	AlignmentToolbar,
 	BlockControls,
@@ -39,9 +39,12 @@ export default function Edit( {
 	const panel = useRef();
 	const Heading =
 		headerElement === 'heading' ? `h${ headerHeadingLevel }` : 'p';
-	const allOtherBlocks = getBlockTypes()
-		.map( ( block ) => block.name )
-		.filter( ( name ) => name !== 'tt/accordion-item' );
+	const allOtherBlocks = useSelect( ( select ) => {
+		return select( 'core/blocks' )
+			.getBlockTypes()
+			.map( ( block ) => block.name )
+			.filter( ( name ) => name !== 'tt/accordion-item' );
+	}, [] );
 
 	useEffect( () => {
 		const nextAttributes = {};

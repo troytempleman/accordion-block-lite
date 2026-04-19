@@ -40,7 +40,7 @@ icons.arrow = (
 	>
 		<polyline
 			points="4.711,8 12,15.289 19.289,8"
-			stroke="black"
+			stroke="currentColor"
 			strokeWidth="2"
 			fill="none"
 		/>

@@ -25,6 +25,13 @@
 	margin: 0 0.75rem;
 }
 
+.wp-block-tt-accordion-item-header-button-icon-arrow svg {
+	display: block;
+	fill: none;
+	stroke: currentcolor;
+	stroke-width: 2;
+}
+
 .wp-block-tt-accordion-item-header-button[aria-expanded="true"] .wp-block-tt-accordion-item-header-button-icon-arrow svg {
 	transform: rotate(180deg);
 }

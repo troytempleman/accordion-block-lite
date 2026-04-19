@@ -26,36 +26,21 @@ if ( $text_align ) {
 
 $wrapper_attributes = get_block_wrapper_attributes( array( 'class' => $class ) );
 
-$allowed_svg = array(
-	'svg'      => array(
-		'xmlns'       => true,
-		'width'       => true,
-		'height'      => true,
-		'viewBox'     => true,
-		'aria-hidden' => true,
-		'focusable'   => true,
-	),
-	'polyline' => array(
-		'points'       => true,
-		'stroke'       => true,
-		'stroke-width' => true,
-		'fill'         => true,
-	),
-);
+$icon_markup = '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><polyline points="4.711,8 12,15.289 19.289,8" stroke="currentColor" stroke-width="2" fill="none" /></svg>';
 
-$icon_markup = '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><polyline points="4.711,8 12,15.289 19.289,8" stroke="black" stroke-width="2" fill="none" /></svg>';
-$icon_markup = wp_kses( $icon_markup, $allowed_svg );
+// Block content
+$block_content = '<li ' . $wrapper_attributes . '>';
+$block_content .= '<' . $header_heading . ' class="wp-block-tt-accordion-item-header">';
+$block_content .= '<button class="wp-block-tt-accordion-item-header-button" id="' . esc_attr( $button_id ) . '" type="button" aria-expanded="false" aria-controls="' . esc_attr( $panel_id ) . '">';
+$block_content .= '<span class="wp-block-tt-accordion-item-header-button-text">' . wp_kses_post( $header_text ) . '</span>';
+$block_content .= '<span class="wp-block-tt-accordion-item-header-button-icon-arrow" aria-hidden="true">' . $icon_markup . '</span>';
+$block_content .= '</button>';
+$block_content .= '</' . $header_heading . '>';
+$block_content .= '<div class="wp-block-tt-accordion-item-panel" id="' . esc_attr( $panel_id ) . '" role="region" aria-labelledby="' . esc_attr( $button_id ) . '" hidden>';
+$block_content .= wp_kses_post( $content );
+$block_content .= '</div>';
+$block_content .= '</li>';
 
-echo '<li ' . $wrapper_attributes . '>';
-echo '<' . $header_heading . ' class="wp-block-tt-accordion-item-header">';
-echo '<button class="wp-block-tt-accordion-item-header-button" id="' . esc_attr( $button_id ) . '" type="button" aria-expanded="false" aria-controls="' . esc_attr( $panel_id ) . '">';
-echo '<span class="wp-block-tt-accordion-item-header-button-text">' . wp_kses_post( $header_text ) . '</span>';
-echo '<span class="wp-block-tt-accordion-item-header-button-icon-arrow" aria-hidden="true">' . $icon_markup . '</span>';
-echo '</button>';
-echo '</' . $header_heading . '>';
-echo '<div class="wp-block-tt-accordion-item-panel" id="' . esc_attr( $panel_id ) . '" role="region" aria-labelledby="' . esc_attr( $button_id ) . '" hidden>';
-echo wp_kses_post( $content );
-echo '</div>';
-echo '</li>';
+echo $block_content;
 
 ?>

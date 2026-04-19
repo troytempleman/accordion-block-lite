@@ -3,9 +3,9 @@ Contributors: troytempleman
 Donate link: https://www.buymeacoffee.com/troytempleman
 Tags: accordion, accordion item, block, accessible, responsive
 Requires at least: 6.0
-Tested up to: 6.8
+Tested up to: 6.9.4
 Stable tag: 0.1.3
-Requires PHP: 8.0
+Requires PHP: 7.4
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -94,7 +94,7 @@ Accordion Block Lite will output an Accordion block with the following HTML stru
 				    <span class="wp-block-tt-accordion-item-header-button-text">Title</span>
 				    <span class="wp-block-tt-accordion-item-header-button-icon-arrow" aria-hidden="true">
 					    <svg version="1.1" xmlns="http://www.w3.org/2000/svg" width="24px" height="24px" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
-						    <polyline points="4.711,8 12,15.289 19.289,8" stroke="black" stroke-width="2" fill="none"></polyline>
+						    <polyline points="4.711,8 12,15.289 19.289,8" stroke="currentColor" stroke-width="2" fill="none"></polyline>
 					    </svg>
 				    </span>
 			    </button>
@@ -111,7 +111,7 @@ If you need help with Accordion Block Lite, please submit a ticket on the [Suppo
 
 == Donate == 
 
-If you like Accordion Block Lite and would like to support it's future development, how about [buying me a coffee](https://www.buymeacoffee.com/troytempleman)?
+If you like Accordion Block Lite and would like to support its future development, how about [buying me a coffee](https://www.buymeacoffee.com/troytempleman)?
 
 == Contribute == 
 

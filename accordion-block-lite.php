@@ -5,7 +5,7 @@
  * Description:       A block that displays vertical list items that can expand and collapse to show and hide their associated sections of content.
  * Version:           0.1.3
  * Requires at least: 6.0
- * Requires PHP:      8.0
+ * Requires PHP:      7.4
  * Author:            Troy Templeman
  * Author URI:        https://troytempleman.com
  * License:           GPL v2 or later

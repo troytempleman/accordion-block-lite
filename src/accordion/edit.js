@@ -9,11 +9,7 @@ import {
 	InspectorControls,
 	useBlockProps,
 } from '@wordpress/block-editor';
-import {
-	PanelBody,
-	ToggleGroupControl,
-	ToggleGroupControlOption,
-} from '@wordpress/components';
+import { PanelBody, RadioControl } from '@wordpress/components';
 import { useEffect } from '@wordpress/element';
 import { __ } from '@wordpress/i18n';
 
@@ -46,7 +42,9 @@ export default function Edit( { attributes, setAttributes, clientId } ) {
 				<InnerBlocks
 					allowedBlocks={ [ 'tt/accordion-item' ] }
 					template={ [ [ 'tt/accordion-item' ] ] }
-					renderAppender={ () => <Appender rootClientId={ uid } /> }
+					renderAppender={ () => (
+						<Appender rootClientId={ uid || clientId } />
+					) }
 				/>
 			</ul>
 		);
@@ -56,37 +54,36 @@ export default function Edit( { attributes, setAttributes, clientId } ) {
 	const inspectorControls = () => {
 		return (
 			<>
-				<InspectorControls group="settings">
+				<InspectorControls>
 					<PanelBody
 						title={ __( 'Settings', 'accordion-block-lite' ) }
 					>
-						<ToggleGroupControl
+						<RadioControl
 							label={ __(
 								'Header Element',
 								'accordion-block-lite'
 							) }
-							className="components-toggle-group-control-header-element"
-							value={ headerElement }
+							selected={ headerElement }
+							options={ [
+								{
+									label: __(
+										'Paragraph',
+										'accordion-block-lite'
+									),
+									value: 'paragraph',
+								},
+								{
+									label: __(
+										'Heading',
+										'accordion-block-lite'
+									),
+									value: 'heading',
+								},
+							] }
 							onChange={ ( value ) =>
 								setAttributes( { headerElement: value } )
 							}
-							isBlock
-						>
-							<ToggleGroupControlOption
-								label={ __(
-									'Paragraph',
-									'accordion-block-lite'
-								) }
-								value="paragraph"
-							/>
-							<ToggleGroupControlOption
-								label={ __(
-									'Heading',
-									'accordion-block-lite'
-								) }
-								value="heading"
-							/>
-						</ToggleGroupControl>
+						/>
 					</PanelBody>
 				</InspectorControls>
 			</>

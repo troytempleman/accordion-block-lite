@@ -17,8 +17,11 @@ if ( $text_align ) {
 
 $wrapper_attributes = get_block_wrapper_attributes( array( 'class' => $class ) );
 
-echo '<ul ' . $wrapper_attributes . '>';
-echo wp_kses_post( $content );
-echo '</ul>';
+// Block content
+$block_content = '<ul ' . $wrapper_attributes . '>';
+$block_content .= $content;
+$block_content .= '</ul>';
+
+echo $block_content;
 
 ?>
