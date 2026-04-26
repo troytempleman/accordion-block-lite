@@ -4,7 +4,7 @@ Donate link: https://www.buymeacoffee.com/troytempleman
 Tags: accordion, accordion item, block, accessible, responsive
 Requires at least: 6.0
 Tested up to: 6.9.4
-Stable tag: 0.1.3
+Stable tag: 0.1.4
 Requires PHP: 7.4
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
@@ -237,6 +237,12 @@ Please see **Installation** section.
 5. Accordion block on the front end.
 
 == Changelog ==
+
+= 0.1.4 - April 25, 2026 =
+
+* Fixed: Vertical scrollbar appearing inside open accordion items with long content.
+* Fixed: Content touching the bottom edge of open accordion items.
+* Updated: Version in `accordion-block-lite.php`, `package.json`, `readme.md`, `readme.txt`, `build/accordion-item/block.json`, and `src/accordion-item/block.json`.
 
 = 0.1.3 - April 18, 2026 =
 
